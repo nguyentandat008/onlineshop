@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineShop.Model.Models
 {
     [Table("Menus")]
-    class Menu
+    public class Menu
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

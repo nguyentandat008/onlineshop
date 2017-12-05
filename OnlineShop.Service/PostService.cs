@@ -21,6 +21,8 @@ namespace OnlineShop.Service
 
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
 
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
+
         Post GetById(int id);
 
         IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
@@ -57,7 +59,13 @@ namespace OnlineShop.Service
         public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
             // Todo: select all post by tag
-            return _postRepository.GetMultiPaging(x => x.Stutus, out totalRow, page, pageSize);
+            return _postRepository.GetAllByTag( tag, page, pageSize, out totalRow);
+        }
+
+        public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
+        {
+            // Todo: select all post by tag
+            return _postRepository.GetMultiPaging(x => x.Stutus && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)

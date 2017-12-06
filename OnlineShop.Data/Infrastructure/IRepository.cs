@@ -10,15 +10,15 @@ namespace OnlineShop.Data.Infrastructure
     public interface IRepository<T> where T : class
     {
         // Marks an entity as new
-        void Add(T entity);
+        T Add(T entity);
 
         // Marks an entity as modified
         void Update(T entity);
 
         // Marks an entity to be remove
-        void Delete(T entity);
+        T Delete(T entity);
 
-        void Delete(int id);
+        T Delete(int id);
 
         // Delete multi records
         void DeleteMulti(Expression<Func<T, bool>> where);
@@ -30,13 +30,13 @@ namespace OnlineShop.Data.Infrastructure
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 
         // Get all, include child table
-        IQueryable<T> GetAll(string[] includes = null);
+        IEnumerable<T> GetAll(string[] includes = null);
 
         // Get multi records
-        IQueryable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
+        IEnumerable<T> GetMulti(Expression<Func<T, bool>> predicate, string[] includes = null);
 
         // Get multi paging
-        IQueryable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);
+        IEnumerable<T> GetMultiPaging(Expression<Func<T, bool>> filter, out int total, int index = 0, int size = 50, string[] includes = null);
 
         // Count by condition
         int Count(Expression<Func<T, bool>> where);

@@ -26,28 +26,29 @@ namespace OnlineShop.Web.infrastructure.Core
             {
                 response = function.Invoke();
             }
-            catch(DbEntityValidationException ex)
+            catch (DbEntityValidationException ex)
             {
-                foreach(var eve in ex.EntityValidationErrors)
+                foreach (var eve in ex.EntityValidationErrors)
                 {
-                    Trace.WriteLine($"Entity of type \" {eve.Entry.Entity.GetType().Name} \" in state \" {eve.Entry.State} \" has the following validation errors.");
-                    foreach(var ve in eve.ValidationErrors)
+                    Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation error.");
+                    foreach (var ve in eve.ValidationErrors)
                     {
-                        Trace.WriteLine($"-Property: \" {ve.PropertyName} \", Error: \" {ve.ErrorMessage} \"");
+                        Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
                     }
                 }
+                LogError(ex);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.InnerException.Message);
             }
-            catch (DbUpdateException DbEx)
+            catch (DbUpdateException dbEx)
             {
-                LogError(DbEx);
-                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, DbEx.InnerException.Message);
+                LogError(dbEx);
+                response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, dbEx.InnerException.Message);
             }
             catch (Exception ex)
             {
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-
             return response;
         }
 
@@ -56,16 +57,14 @@ namespace OnlineShop.Web.infrastructure.Core
             try
             {
                 Error error = new Error();
+                error.CreateDate = DateTime.Now;
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
-                error.CreateDate = DateTime.Now;
-
                 _errorService.Create(error);
                 _errorService.Save();
             }
             catch
             {
-
             }
         }
     }

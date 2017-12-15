@@ -28,9 +28,9 @@ namespace OnlineShop.UnitTest.ServiceTest
             _categoryService = new PostCategoryService(_mockRepository.Object, _mockUnitOfWork.Object);
             _listCategory = new List<PostCategory>()
             {
-                new PostCategory() {ID=1, Name="DM1", Stutus=true},
-                new PostCategory() {ID=2, Name="DM2", Stutus=true},
-                new PostCategory() {ID=3, Name="DM3", Stutus=true}
+                new PostCategory() {ID=1, Name="DM1", Status=true},
+                new PostCategory() {ID=2, Name="DM2", Status=true},
+                new PostCategory() {ID=3, Name="DM3", Status=true}
             };
         }
 
@@ -54,7 +54,7 @@ namespace OnlineShop.UnitTest.ServiceTest
             PostCategory postCategory = new PostCategory();
             postCategory.Name = "Test";
             postCategory.Alias = "Test";
-            postCategory.Stutus = true;
+            postCategory.Status = true;
 
             _mockRepository.Setup(m => m.Add(postCategory)).Returns((PostCategory p) =>
               {

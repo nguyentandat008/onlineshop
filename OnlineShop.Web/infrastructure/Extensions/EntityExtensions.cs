@@ -27,7 +27,7 @@ namespace OnlineShop.Web.infrastructure.Extensions
             postCategory.UpdatedBy = postCategoryVM.UpdatedBy;
             postCategory.MetaKeyword = postCategoryVM.MetaKeyword;
             postCategory.MetaDescription = postCategoryVM.MetaDescription;
-            postCategory.Stutus = postCategoryVM.Stutus;
+            postCategory.Status = postCategoryVM.Status;
         }
 
         public static void UpdatePost(this Post post, PostViewModel postVM)
@@ -49,7 +49,7 @@ namespace OnlineShop.Web.infrastructure.Extensions
             post.UpdatedBy = postVM.UpdatedBy;
             post.MetaKeyword = postVM.MetaKeyword;
             post.MetaDescription = postVM.MetaDescription;
-            post.Stutus = postVM.Stutus;
+            post.Status = postVM.Status;
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿(function () {
-    angular.module('onlineshop', ['onlineshop.products', 'onlineshop.common']).config(config);
+    angular.module('onlineshop', ['onlineshop.products',
+                                  'onlineshop.product_categories',
+                                  'onlineshop.common'])
+                                .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 

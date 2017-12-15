@@ -65,12 +65,12 @@ namespace OnlineShop.Service
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
             // Todo: select all post by tag
-            return _postRepository.GetMultiPaging(x => x.Stutus && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
+            return _postRepository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
         {
-            return _postRepository.GetMultiPaging(x => x.Stutus, out totalRow, page, pageSize);
+            return _postRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
         }
 
         public Post GetById(int id)

@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201712070900436_ChangeKey.Designer.cs">
       <DependentUpon>201712070900436_ChangeKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712150710326_replaceStutus.cs" />
+    <Compile Include="Migrations\201712150710326_replaceStutus.Designer.cs">
+      <DependentUpon>201712150710326_replaceStutus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070900436_ChangeKey.resx">
       <DependentUpon>201712070900436_ChangeKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150710326_replaceStutus.resx">
+      <DependentUpon>201712150710326_replaceStutus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

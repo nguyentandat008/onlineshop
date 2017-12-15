@@ -39,7 +39,7 @@ namespace OnlineShop.UnitTest.RepositoryTest
             PostCategory category = new PostCategory();
             category.Name = "Test category";
             category.Alias = "Test-category";
-            category.Stutus = true;
+            category.Status = true;
 
             var result = objRepository.Add(category);
             unitOfWork.Commit();

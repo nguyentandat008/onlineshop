@@ -54,7 +54,7 @@ namespace OnlineShop.Service
 
         public IEnumerable<PostCategory> GetAllByParentId(int parentId)
         {
-            return _postCategoryRepository.GetMulti(x => x.Stutus && x.ParentID == parentId);
+            return _postCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
         }
 
         public PostCategory GetById(int id)

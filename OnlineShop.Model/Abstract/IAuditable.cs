@@ -16,6 +16,6 @@ namespace OnlineShop.Model.Abstract
 
         string MetaDescription { get; set; }
 
-        bool Stutus { get; set; }
+        bool Status { get; set; }
     }
 }

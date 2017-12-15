@@ -24,7 +24,7 @@ namespace OnlineShop.Data.Repositories
             var query = from p in DbContext.Posts
                         join pt in DbContext.PostTags
                         on p.ID equals pt.PostID
-                        where pt.TagID == tag && p.Stutus
+                        where pt.TagID == tag && p.Status
                         orderby p.CreatedDate descending
                         select p;
 

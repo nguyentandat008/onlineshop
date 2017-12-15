@@ -100,7 +100,7 @@ namespace OnlineShop.Data.Migrations
                         UpdatedBy = c.String(maxLength: 256),
                         MetaKeyword = c.String(maxLength: 256),
                         MetaDescription = c.String(maxLength: 256),
-                        Stutus = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.ProductCategories", t => t.CategoryID, cascadeDelete: true)
@@ -124,7 +124,7 @@ namespace OnlineShop.Data.Migrations
                         UpdatedBy = c.String(maxLength: 256),
                         MetaKeyword = c.String(maxLength: 256),
                         MetaDescription = c.String(maxLength: 256),
-                        Stutus = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -142,7 +142,7 @@ namespace OnlineShop.Data.Migrations
                         UpdatedBy = c.String(maxLength: 256),
                         MetaKeyword = c.String(maxLength: 256),
                         MetaDescription = c.String(maxLength: 256),
-                        Stutus = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -164,7 +164,7 @@ namespace OnlineShop.Data.Migrations
                         UpdatedBy = c.String(maxLength: 256),
                         MetaKeyword = c.String(maxLength: 256),
                         MetaDescription = c.String(maxLength: 256),
-                        Stutus = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -188,7 +188,7 @@ namespace OnlineShop.Data.Migrations
                         UpdatedBy = c.String(maxLength: 256),
                         MetaKeyword = c.String(maxLength: 256),
                         MetaDescription = c.String(maxLength: 256),
-                        Stutus = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.PostCategories", t => t.CategoryID, cascadeDelete: true)
